@@ -6,15 +6,26 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "aos": "^2.3.4",
+    "axios": "^0.19.2",
+    "firebase": "^7.17.1",
+    "framer-motion": "^2.2.0",
+    "lodash-es": "^4.17.15",
+    "mdbreact": "./mdbreact-4.25.0.tgz",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-spring": "^9.0.0-rc.3",
+    "react-use-gesture": "^7.0.15"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "cleanBuild": "rimraf ./build/*",
+    "build": "npm run cleanBuild && set \"GENERATE_SOURCEMAP=false\" && react-scripts build ",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./components/Shared/NavbarPage";
+import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
+import Footer from "./components/Shared/Footer";
+import Main from "./components/Home/Main";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import EnterPosts from "./components/Blog/EnterPosts";
 function App() {
+  AOS.init();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route path="/" component={Main} exact />
+        <Route path="/editposts" component={EnterPosts} exact />
+        <Redirect to="/" />
+      </Switch>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
